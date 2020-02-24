@@ -1,8 +1,8 @@
 import Router from "koa-router";
-import { demo } from "./controller";
+import { spider } from "./controller";
 
 const router = new Router({ prefix: "" });
 
-router.get("/demo/list", ...([demo.list] as any));
+router.get("/spider/init", ...([spider.init] as any));
 
 export { router };
