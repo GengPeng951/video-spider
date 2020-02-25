@@ -1,15 +1,15 @@
-export const SUCCESS_CODE = 1000000 //成功
-export const PARAMS_ERROR_CODE = 1000001 // 参数传入不对
-export const HINT_ERROR_CODE = 500000 //失败
-export const AUTH_ERROR_CODE = 500001 //异常
-export const AUTH_FAIL_CODE = 400003 //鉴权失败
-export const PERMISSION_ERROR_CODE = 400005 //无权限
+export const SUCCESS_CODE = 1000000; //成功
+export const PARAMS_ERROR_CODE = 1000001; // 参数传入不对
+export const HINT_ERROR_CODE = 500000; //失败
+export const AUTH_ERROR_CODE = 500001; //异常
+export const AUTH_FAIL_CODE = 400003; //鉴权失败
+export const PERMISSION_ERROR_CODE = 400005; //无权限
 
 interface Body {
-  errorCode: number
-  errorMsg?: string | null
-  result?: any
-  success: boolean
+  errorCode: number;
+  errorMsg?: string | null;
+  result?: any;
+  success: boolean;
 }
 
 export const successBody = (result: any): Body => {
@@ -18,17 +18,17 @@ export const successBody = (result: any): Body => {
     errorMsg: null,
     result,
     success: true
-  }
-}
+  };
+};
 
 export const requestParamsErrorBody = (result?: any) => {
   return {
     errorCode: PARAMS_ERROR_CODE,
-    errorMsg: '参数传入不对',
+    errorMsg: "参数传入不对",
     result: result || null,
     success: false
-  }
-}
+  };
+};
 
 export const errorBody = (
   errorCode: number,
@@ -40,34 +40,9 @@ export const errorBody = (
     errorMsg,
     result,
     success: false
-  }
-}
+  };
+};
 
 export const hintErrorBody = (errorMsg: string, result?: any) => {
-  return errorBody(HINT_ERROR_CODE, errorMsg, result)
-}
-
-export const authErrorBody = (errorMsg: string, result?: any): Body => {
-  return {
-    errorCode: AUTH_ERROR_CODE,
-    errorMsg,
-    result,
-    success: false
-  }
-}
-
-export const authFailBody = (): Body => {
-  return {
-    errorCode: AUTH_FAIL_CODE,
-    errorMsg: '鉴权失败',
-    success: false
-  }
-}
-
-export const noPermissionBody = () => {
-  return {
-    errorCode: PERMISSION_ERROR_CODE,
-    errorMsg: '无权限操作',
-    success: false
-  }
-}
+  return errorBody(HINT_ERROR_CODE, errorMsg, result);
+};
